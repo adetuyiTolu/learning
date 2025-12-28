@@ -1,66 +1,52 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import React from 'react';
+import Card from '@/components/Card';
+import Button from '@/components/Button';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <header
+        style={{ marginBottom: 'var(--spacing-xl)', textAlign: 'center' }}
+      >
+        <h1 style={{ fontSize: '2.5rem', color: 'var(--color-primary)' }}>
+          Welcome to AccessLearn
+        </h1>
+        <p
+          style={{ fontSize: '1.25rem', color: 'var(--color-text-secondary)' }}
+        >
+          Empowering students with inclusive learning tools.
+        </p>
+      </header>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 'var(--spacing-lg)',
+        }}
+      >
+        <Card title="Live Transcription" role="region" className="feature-card">
+          <p style={{ marginBottom: 'var(--spacing-md)' }}>
+            Real-time speech-to-text for lectures and conversations.
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          <Button href="/transcribe" fullWidth>
+            Start Transcription
+          </Button>
+        </Card>
+
+        <Card
+          title="Visual Learning Aids"
+          role="region"
+          className="feature-card"
+        >
+          <p style={{ marginBottom: 'var(--spacing-md)' }}>
+            Interactive visual content and cues for enhanced learning.
+          </p>
+          <Button href="/visual-aids" fullWidth variant="ghost">
+            View Aids
+          </Button>
+        </Card>
+      </div>
     </div>
   );
 }
